@@ -1,0 +1,75 @@
+# ========================
+# Flutter / Dart / Pub
+# ========================
+**/doc/api/
+**/ios/Flutter/.last_build_id
+.dart_tool/
+.flutter-plugins
+.flutter-plugins-dependencies
+.packages
+.pub-cache/
+.pub/
+build/
+
+# ========================
+# Android / iOS Build
+# ========================
+android/app/debug
+android/app/profile
+android/app/release
+ios/Flutter/App.framework
+ios/Flutter/Flutter.framework
+ios/Flutter/Generated.xcconfig
+ios/Flutter/ephemeral/
+
+# ========================
+# IDEs and Editors
+# ========================
+*.iml
+*.ipr
+*.iws
+.idea/
+*.class
+*.log
+*.pyc
+*.swp
+.DS_Store
+.atom/
+.build/
+.buildlog/
+.history
+.svn/
+.swiftpm/
+migrate_working_dir/
+
+# VS Code (uncomment if you don't want to commit VS Code settings)
+#.vscode/
+
+# ========================
+# Debug / Obfuscation
+# ========================
+app.*.symbols
+app.*.map.json
+
+# ========================
+# Large Files / Media
+# ========================
+*.zip
+*.rar
+*.7z
+*.tar
+*.gz
+*.bz2
+*.xz
+*.mp4
+*.mov
+*.avi
+*.mkv
+*.mp3
+*.wav
+*.flac
+*.iso
+
+# Ignore any specific large files or folders
+# path/to/large_file.ext
+# large_folder/
