@@ -1,3 +1,4 @@
+import 'package:app/widgets/Custom_Add_Note.dart';
 import 'package:app/widgets/custom_list_view.dart';
 import 'package:app/widgets/notes_view_body.dart';
 import 'package:flutter/material.dart';
@@ -10,7 +11,14 @@ class NotesView extends StatelessWidget {
     return Scaffold(
       body: NotesViewBody(),
       floatingActionButton: FloatingActionButton(
-        onPressed: () {},
+        onPressed: () {
+          showModalBottomSheet(
+            context: context,
+            builder: (context) {
+              return CustomAddNote();
+            },
+          );
+        },
         child: Icon(Icons.add),
       ),
     );

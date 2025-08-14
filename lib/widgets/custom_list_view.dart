@@ -8,11 +8,15 @@ class CustomListView extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return ListView.builder(
-      itemCount: 10,
-      itemBuilder: (context, indx) {
-        return CustomContainer();
-      },
+    return Padding(
+      padding: const EdgeInsets.only(bottom: 12, top: 12),
+      child: ListView.builder(
+        padding: EdgeInsets.all(0),
+        itemCount: 10,
+        itemBuilder: (context, indx) {
+          return CustomContainer();
+        },
+      ),
     );
   }
 }
