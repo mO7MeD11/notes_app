@@ -1,3 +1,4 @@
+import 'package:app/const.dart';
 import 'package:flutter/material.dart';
 
 class CustomContainer extends StatelessWidget {
@@ -13,7 +14,7 @@ class CustomContainer extends StatelessWidget {
           padding: EdgeInsets.only(top: 24, bottom: 26),
           width: double.infinity,
           decoration: BoxDecoration(
-            color: const Color.fromARGB(255, 41, 139, 128),
+            color: KPcolor,
             borderRadius: BorderRadius.circular(12),
           ),
           child: Padding(

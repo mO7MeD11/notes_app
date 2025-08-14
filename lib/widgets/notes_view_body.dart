@@ -6,13 +6,13 @@ import 'package:flutter/material.dart';
 class NotesViewBody extends StatelessWidget {
   const NotesViewBody({super.key});
 
-  @override 
+  @override
   Widget build(BuildContext context) {
     return Padding(
       padding: const EdgeInsets.symmetric(horizontal: 12),
       child: Column(
         children: [
-          CustomAppPar(),
+          CustomAppPar(title: 'Notes App', icon: Icon(Icons.search)),
           Expanded(child: CustomListView()),
         ],
       ),

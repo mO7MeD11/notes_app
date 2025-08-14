@@ -1,3 +1,4 @@
+import 'package:app/views/edit_note_view.dart';
 import 'package:app/views/notes_view.dart';
 import 'package:app/widgets/custom_Container.dart';
 import 'package:app/widgets/notes_view_body.dart';
@@ -14,7 +15,14 @@ class CustomListView extends StatelessWidget {
         padding: EdgeInsets.all(0),
         itemCount: 10,
         itemBuilder: (context, indx) {
-          return CustomContainer();
+          return GestureDetector(
+            child: CustomContainer(),
+            onTap: () {
+              Navigator.of(
+                context,
+              ).push(MaterialPageRoute(builder: (context) => EditNoteView()));
+            },
+          );
         },
       ),
     );

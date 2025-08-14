@@ -1,3 +1,4 @@
+import 'package:app/const.dart';
 import 'package:flutter/material.dart';
 
 class Custombutton extends StatelessWidget {
@@ -6,8 +7,12 @@ class Custombutton extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return SizedBox(
-      width: double.infinity,
-      child: FilledButton(onPressed: () {}, child: Text('add')),
+      width: MediaQuery.of(context).size.width,
+      child: FilledButton(
+        onPressed: () {},
+        style: FilledButton.styleFrom(backgroundColor: KPcolor),
+        child: Text('add'),
+      ),
     );
   }
 }

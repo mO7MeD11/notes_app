@@ -1,3 +1,4 @@
+import 'package:app/const.dart';
 import 'package:flutter/material.dart';
 
 class CustomTextFormField extends StatelessWidget {
@@ -7,25 +8,26 @@ class CustomTextFormField extends StatelessWidget {
     required this.height,
   });
   final String hint;
-  final double height;
+  final int height;
 
   @override
   Widget build(BuildContext context) {
     return TextFormField(
+      maxLines: height,
+      cursorColor: KPcolor,
       decoration: InputDecoration(
         border: BuildBorder(),
         enabledBorder: BuildBorder(),
-        focusedBorder: BuildBorder(),
+        focusedBorder: BuildBorder(KPcolor),
         hintText: hint,
-        contentPadding: EdgeInsets.only(top: height, bottom: height, left: 12),
       ),
     );
   }
 
-  OutlineInputBorder BuildBorder() {
+  OutlineInputBorder BuildBorder([color]) {
     return OutlineInputBorder(
       borderRadius: BorderRadius.circular(8),
-      borderSide: BorderSide(color: Colors.white),
+      borderSide: BorderSide(color: color ?? Colors.white),
     );
   }
 }
