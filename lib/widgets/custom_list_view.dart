@@ -15,14 +15,7 @@ class CustomListView extends StatelessWidget {
         padding: EdgeInsets.all(0),
         itemCount: 10,
         itemBuilder: (context, indx) {
-          return GestureDetector(
-            child: CustomContainer(),
-            onTap: () {
-              Navigator.of(
-                context,
-              ).push(MaterialPageRoute(builder: (context) => EditNoteView()));
-            },
-          );
+          return CustomContainer();
         },
       ),
     );
