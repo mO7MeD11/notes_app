@@ -2,14 +2,14 @@ import 'package:app/const.dart';
 import 'package:flutter/material.dart';
 
 class Custombutton extends StatelessWidget {
-  const Custombutton({super.key});
-
+  const Custombutton({super.key, required this.ontap});
+  final void Function()? ontap;
   @override
   Widget build(BuildContext context) {
     return SizedBox(
       width: MediaQuery.of(context).size.width,
       child: FilledButton(
-        onPressed: () {},
+        onPressed: ontap  ,
         style: FilledButton.styleFrom(backgroundColor: KPcolor),
         child: Text('add'),
       ),
