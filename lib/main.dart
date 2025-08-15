@@ -1,6 +1,7 @@
 import 'package:app/const.dart';
 import 'package:app/cubits/add_note/add_note_cubit.dart';
 import 'package:app/models/note_model.dart';
+import 'package:app/simple_bloc_observer.dart';
 import 'package:app/views/notes_view.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
@@ -8,6 +9,7 @@ import 'package:hive_flutter/adapters.dart';
 
 void main() async {
   await Hive.initFlutter();
+  Bloc.observer = SimpleBlocObserver();
   await Hive.openBox(Knotesbox);
   Hive.registerAdapter(NoteModelAdapter());
   runApp(const notes_app());
