@@ -6,7 +6,7 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:hive_flutter/hive_flutter.dart';
 
 class AddNoteCubit extends Cubit<NoteState> {
-  AddNoteCubit(super.initialState);
+  AddNoteCubit() : super(InitialNoteState());
 
   addnote(NoteModel note) async {
     emit(LoadingNoteState());
