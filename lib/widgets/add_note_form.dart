@@ -1,5 +1,6 @@
 import 'package:app/const.dart';
 import 'package:app/cubits/add_note/add_note_cubit.dart';
+import 'package:app/cubits/add_note/add_note_state.dart';
 import 'package:app/models/note_model.dart';
 import 'package:app/widgets/custom_text_form_field.dart';
 import 'package:app/widgets/custombutton.dart';
@@ -42,21 +43,26 @@ class _AddNoteFormState extends State<AddNoteForm> {
             },
           ),
           SizedBox(height: 30),
-          Custombutton(
-            ontap: () {
-              if (formKye.currentState!.validate()) {
-                formKye.currentState!.save();
-                var notemodel = NoteModel(
-                  title: title!,
-                  subtitle: subtitle!,
-                  date: DateTime.now().toString(),
-                  color: color,
-                );
-                BlocProvider.of<AddNoteCubit>(context).addnote(notemodel);
-              } else {
-                autovalidateMode = AutovalidateMode.always;
-                setState(() {});
-              }
+          BlocBuilder<AddNoteCubit, NoteState>(
+            builder: (context, state) {
+              return Custombutton(
+                isloding: state is LoadingNoteState ? true : false,
+                ontap: () {
+                  if (formKye.currentState!.validate()) {
+                    formKye.currentState!.save();
+                    var notemodel = NoteModel(
+                      title: title!,
+                      subtitle: subtitle!,
+                      date: DateTime.now().toString(),
+                      color: color,
+                    );
+                    BlocProvider.of<AddNoteCubit>(context).addnote(notemodel);
+                  } else {
+                    autovalidateMode = AutovalidateMode.always;
+                    setState(() {});
+                  }
+                },
+              );
             },
           ),
         ],
