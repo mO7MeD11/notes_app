@@ -40,7 +40,7 @@ class CustomContainer extends StatelessWidget {
                     subtitle: Padding(
                       padding: const EdgeInsets.only(top: 15),
                       child: Text(
-                        'mohamed hatem is the best one',
+                        'mohamed hatem ',
                         style: TextStyle(color: Colors.black, fontSize: 22),
                       ),
                     ),
