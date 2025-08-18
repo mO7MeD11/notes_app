@@ -48,7 +48,9 @@ class CustomContainer extends StatelessWidget {
                       ),
                     ),
                     trailing: IconButton(
-                      onPressed: () {},
+                      onPressed: () {
+                        notes.delete();
+                      },
                       icon: Icon(Icons.delete, size: 30, color: Colors.black),
                     ),
                   ),
