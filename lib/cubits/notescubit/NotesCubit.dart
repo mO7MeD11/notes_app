@@ -5,16 +5,11 @@ import 'package:app/models/note_model.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:hive/hive.dart';
 
-class Notescubit extends Cubit {
-  Notescubit() : super(Notesstate);
-
-  getallnotes() async {
-    emit(NoteStateLoading());
-    try {
-      var notebox = Hive.box<NoteModel>(Knotesbox);
-      emit(NoteStateSuccess(notebox.values.toList()));
-    } on Exception catch (e) {
-      emit(NoteStateFailure(error: 'there was an error ${e.toString()}'));
-    }
+class Notescubit extends Cubit<Notesstate2> {
+  Notescubit() : super(NoteStateInitial());
+  List<NoteModel>? note;
+  getallnotes() {
+    var notebox = Hive.box<NoteModel>(Knotesbox);
+    note = notebox.values.toList();
   }
 }

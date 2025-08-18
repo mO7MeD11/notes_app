@@ -1,9 +1,12 @@
 import 'package:app/const.dart';
+import 'package:app/models/note_model.dart';
 import 'package:app/views/edit_note_view.dart';
 import 'package:flutter/material.dart';
 
 class CustomContainer extends StatelessWidget {
-  const CustomContainer({super.key});
+  const CustomContainer({super.key, required this.notes});
+
+  final NoteModel notes;
 
   @override
   Widget build(BuildContext context) {
@@ -21,7 +24,7 @@ class CustomContainer extends StatelessWidget {
             padding: EdgeInsets.only(top: 24, bottom: 26),
             width: double.infinity,
             decoration: BoxDecoration(
-              color: KPcolor,
+              color: Color(notes.color),
               borderRadius: BorderRadius.circular(12),
             ),
             child: Padding(
@@ -30,7 +33,7 @@ class CustomContainer extends StatelessWidget {
                 children: [
                   ListTile(
                     title: Text(
-                      'flutter tips',
+                      notes.title,
                       style: TextStyle(
                         color: Colors.black,
                         fontSize: 24,
@@ -40,7 +43,7 @@ class CustomContainer extends StatelessWidget {
                     subtitle: Padding(
                       padding: const EdgeInsets.only(top: 15),
                       child: Text(
-                        'mohamed hatem ',
+                        notes.subtitle,
                         style: TextStyle(color: Colors.black, fontSize: 22),
                       ),
                     ),
@@ -56,7 +59,7 @@ class CustomContainer extends StatelessWidget {
                       Padding(
                         padding: const EdgeInsets.only(right: 8, top: 8),
                         child: Text(
-                          'date',
+                          notes.date,
                           style: TextStyle(color: Colors.black, fontSize: 22),
                         ),
                       ),

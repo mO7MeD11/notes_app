@@ -7,6 +7,7 @@ import 'package:app/widgets/custombutton.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:intl/intl.dart';
 
 class AddNoteForm extends StatefulWidget {
   const AddNoteForm({super.key});
@@ -53,7 +54,7 @@ class _AddNoteFormState extends State<AddNoteForm> {
                     var notemodel = NoteModel(
                       title: title!,
                       subtitle: subtitle!,
-                      date: DateTime.now().toString(),
+                      date: DateFormat('dd-MM-yyyy').format(DateTime.now()),
                       color: color,
                     );
                     BlocProvider.of<AddNoteCubit>(context).addnote(notemodel);
