@@ -76,19 +76,42 @@ class _AddNoteFormState extends State<AddNoteForm> {
 }
 
 class ColorItem extends StatelessWidget {
-  const ColorItem({super.key});
+  const ColorItem({super.key, required this.isActive, required this.color});
+
+  final bool isActive;
+  final Color color;
 
   @override
   Widget build(BuildContext context) {
     return Padding(
       padding: const EdgeInsets.symmetric(horizontal: 12),
-      child: CircleAvatar(backgroundColor: Colors.amber, radius: 30),
+      child: isActive
+          ? CircleAvatar(
+              backgroundColor: Colors.white,
+              radius: 30,
+              child: CircleAvatar(backgroundColor: color, radius: 27),
+            )
+          : CircleAvatar(backgroundColor: color, radius: 30),
     );
   }
 }
 
-class ColorListView extends StatelessWidget {
+class ColorListView extends StatefulWidget {
   const ColorListView({super.key});
+
+  @override
+  State<ColorListView> createState() => _ColorListViewState();
+}
+
+class _ColorListViewState extends State<ColorListView> {
+  int currentIndex = 0;
+  List<Color> colors = [
+    Color(0xff4F7CAC),
+    Color(0xffC0E0DE),
+    Color(0xff162521),
+    Color(0xff3C474B),
+    Color(0xff9EEFE5),
+  ];
 
   @override
   Widget build(BuildContext context) {
@@ -96,9 +119,18 @@ class ColorListView extends StatelessWidget {
       height: 60,
       child: ListView.builder(
         scrollDirection: Axis.horizontal,
-        itemCount: 10,
+        itemCount: colors.length,
         itemBuilder: (context, index) {
-          return ColorItem();
+          return GestureDetector(
+            onTap: () {
+              currentIndex = index;
+              setState(() {});
+            },
+            child: ColorItem(
+              isActive: currentIndex == index,
+              color: colors[index],
+            ),
+          );
         },
       ),
     );
