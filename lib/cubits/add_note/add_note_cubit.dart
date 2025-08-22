@@ -8,7 +8,10 @@ import 'package:hive_flutter/hive_flutter.dart';
 class AddNoteCubit extends Cubit<NoteState> {
   AddNoteCubit() : super(InitialNoteState());
 
+  Color color = Color(0xff4F7CAC);
+
   addnote(NoteModel note) async {
+    note.color = color.value ;
     emit(LoadingNoteState());
     try {
       var notebox = Hive.box<NoteModel>(Knotesbox);

@@ -1,5 +1,6 @@
 import 'package:app/cubits/add_note/add_note_cubit.dart';
 import 'package:app/cubits/add_note/add_note_state.dart';
+import 'package:app/cubits/notescubit/NotesCubit.dart';
 import 'package:app/widgets/add_note_form.dart';
 import 'package:app/widgets/custom_text_form_field.dart';
 import 'package:app/widgets/custombutton.dart' show Custombutton;
@@ -25,6 +26,7 @@ class CustomAddNote extends StatelessWidget {
 
               if (state is SuccessNoteState) {
                 Navigator.pop(context);
+                BlocProvider.of<Notescubit>(context).getallnotes();
               }
             },
             builder: (context, state) {

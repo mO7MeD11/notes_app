@@ -1,5 +1,6 @@
 import 'package:app/const.dart';
 import 'package:app/cubits/add_note/add_note_cubit.dart';
+import 'package:app/cubits/notescubit/NotesCubit.dart';
 import 'package:app/models/note_model.dart';
 import 'package:app/simple_bloc_observer.dart';
 import 'package:app/views/notes_view.dart';
@@ -23,13 +24,16 @@ class notes_app extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return MaterialApp(
-      theme: ThemeData(
-        //scaffoldBackgroundColor: Colors.blue,
-        brightness: Brightness.dark,
+    return BlocProvider(
+      create: (context) => Notescubit(),
+      child: MaterialApp(
+        theme: ThemeData(
+          //scaffoldBackgroundColor: Colors.blue,
+          brightness: Brightness.dark,
+        ),
+        debugShowCheckedModeBanner: false,
+        home: NotesView(),
       ),
-      debugShowCheckedModeBanner: false,
-      home: NotesView(),
     );
   }
 }

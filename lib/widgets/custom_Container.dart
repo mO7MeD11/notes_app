@@ -1,7 +1,10 @@
 import 'package:app/const.dart';
+import 'package:app/cubits/add_note/add_note_cubit.dart';
+import 'package:app/cubits/notescubit/NotesCubit.dart';
 import 'package:app/models/note_model.dart';
 import 'package:app/views/edit_note_view.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 
 class CustomContainer extends StatelessWidget {
   const CustomContainer({super.key, required this.notes});
@@ -50,6 +53,7 @@ class CustomContainer extends StatelessWidget {
                     trailing: IconButton(
                       onPressed: () {
                         notes.delete();
+                        BlocProvider.of<Notescubit>(context).getallnotes();
                       },
                       icon: Icon(Icons.delete, size: 30, color: Colors.black),
                     ),
