@@ -26,7 +26,7 @@ class _NotesViewBodyState extends State<NotesViewBody> {
       padding: const EdgeInsets.symmetric(horizontal: 12),
       child: Column(
         children: [
-          CustomAppPar(title: 'Notes App', icon: Icon(Icons.search)),
+          CustomAppPar(title: 'Notes App', icon: Icon(Icons.search) , ontap: (){}, ),
           Expanded(child: CustomListView()),
         ],
       ),

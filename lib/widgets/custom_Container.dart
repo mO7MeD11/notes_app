@@ -19,9 +19,11 @@ class CustomContainer extends StatelessWidget {
 
         GestureDetector(
           onTap: () {
-            Navigator.of(
-              context,
-            ).push(MaterialPageRoute(builder: (context) => EditNoteView()));
+            Navigator.of(context).push(
+              MaterialPageRoute(
+                builder: (context) => EditNoteView(note: notes),
+              ),
+            );
           },
           child: Container(
             padding: EdgeInsets.only(top: 24, bottom: 26),
