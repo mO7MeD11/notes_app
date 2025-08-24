@@ -1,3 +1,4 @@
+import 'package:app/const.dart';
 import 'package:app/cubits/add_note/add_note_cubit.dart';
 import 'package:app/widgets/Color_item.dart';
 import 'package:app/widgets/add_note_form.dart';
@@ -13,13 +14,7 @@ class ColorListView extends StatefulWidget {
 
 class _ColorListViewState extends State<ColorListView> {
   int currentIndex = 0;
-  List<Color> colors = [
-    Color(0xff4F7CAC),
-    Color(0xffC0E0DE),
-    Color(0xff162521),
-    Color(0xff3C474B),
-    Color(0xff9EEFE5),
-  ];
+ 
 
   @override
   Widget build(BuildContext context) {
@@ -27,17 +22,17 @@ class _ColorListViewState extends State<ColorListView> {
       height: 60,
       child: ListView.builder(
         scrollDirection: Axis.horizontal,
-        itemCount: colors.length,
+        itemCount: KColors.length,
         itemBuilder: (context, index) {
           return GestureDetector(
             onTap: () {
-              BlocProvider.of<AddNoteCubit>(context).color = colors[index];
+              BlocProvider.of<AddNoteCubit>(context).color = KColors[index];
               currentIndex = index;
               setState(() {});
             },
             child: ColorItem(
               isActive: currentIndex == index,
-              color: colors[index],
+              color: KColors[index],
             ),
           );
         },
